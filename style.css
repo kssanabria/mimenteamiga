@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+  --font-main: 'Nunito', sans-serif;
+}
+
+html {
+  font-family: var(--font-main);
+}
+.header {
+  position: relative;
+  height: 180px;
+  background: #A9DCFF; /* cielo */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+.cloud-left {
+  width: 140px;
+  height: 60px;
+  top: 30px;
+  left: 40px;
+  box-shadow:
+    30px 10px 0 10px white,
+    60px 0px 0 20px white;
+}
+.cloud-right {
+  width: 160px;
+  height: 70px;
+  top: 20px;
+  right: 50px;
+  box-shadow:
+    40px 15px 0 15px white,
+    80px 0px 0 25px white;
+}
