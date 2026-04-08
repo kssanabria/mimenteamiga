@@ -17,60 +17,76 @@
     <header class="header">
         <div class="cloud cloud-left"></div>
         <div class="cloud cloud-right"></div>
+        <div class="cloud cloud-left2"></div>
+        <div class="cloud cloud-right2"></div>
     </header>
 
     <img src="logo.png" alt="logo de mi mente amiga">
 
-    <h1>Registro del cuidador</h1>
-    <p>
-        <i class="fa-solid fa-hand"></i>
+    <h3>Regístrate</h3>
+    <div class="titulo-cuidador">
+      <i class="fa-solid fa-hand"></i>
+      <p class="titulo-cuidador-parrafo">
         Cuidador
     </p>
+    </div>
+    
     
 
     <form>
+      <div class="campo-formulario">
         <i class="fa-solid fa-user"></i>
         <input type="text" placeholder="Nombre completo">
-
-        <br><br>
-
+      </div>
+      <br>
+      <div class="campo-formulario">
         <i class="fa-solid fa-phone"></i>
         <input type="phone" placeholder="Teléfono">
-
-        <br><br>
-
-        <label> <i class="fa-solid fa-envelope"></i> Email</label>
-        <input type="email">
-
-        <br><br>
-
-        <label> <i class="fa-solid fa-lock"></i> Contraseña</label>
-        <input type="password" ><i class="fa-solid fa-eye"></i>
-
-        <br><br>
-
-        <label> <i class="fa-solid fa-lock"></i> Confirmar contraseña</label>
-        <input type="password"><i class="fa-solid fa-eye"></i>
-
-        <br><br>
-
-        <button>Crear cuenta</button>
+      </div>
+      <br>
+      <div class="campo-formulario">
+        <i class="fa-solid fa-calendar"></i> 
+        <input type="date" placeholder="Fecha de nacimiento" title="Fecha de nacimiento">
+      </div>
+      <br>
+      <div class="campo-formulario">
+        <i class="fa-solid fa-envelope"></i> 
+        <input type="email" placeholder="Correo electrónico">
+      </div>
+      <br>
+      <div class="campo-formulario">
+        <i class="fa-solid fa-lock"></i> 
+        <input type="password" placeholder="Contraseña"><i class="fa-solid fa-eye"></i>
+      </div>
+      <br>
+      <div class="campo-formulario">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" placeholder="Confirmar contraseña"><i class="fa-solid fa-eye"></i>
+      </div>
+      <br>
+      <button>Crear cuenta</button>
     </form>
-    <p>
+    <br>
+    <div class="p-final">
+      <p>
         ¿Ya tiene cuenta?
+      </p>
+      <p>
         Inicia sesión
-    </p>
-    <div class="svg-onda" style="height: 500px; overflow: hidden; margin-bottom: -0.5rem">
-        <svg
+      </p>
+    </div>
+
+    <div class="svg-onda" style="height: 300px; width: 100%; overflow: hidden; margin-bottom: -1rem">
+      <svg
           viewBox="0 0 500 150"
           preserveAspectRatio="none"
           style="height: 100%; width: 100%"
         >
-          <path
+        <path
             d="M-22.29,98.20 C149.99,150.00 348.47,-0.47 507.62,121.88 L500.00,150.00 L0.00,150.00 Z"
             style="stroke: none; fill: #BFEA9C"
-          ></path>
-        </svg>
-      </div>
+        ></path>
+      </svg>
+    </div>
 </body>
 </html>
