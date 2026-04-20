@@ -76,10 +76,11 @@ img {
   width: 50%;
   object-fit: cover;
 }
-h3 {
-  font-size: 36px;
+h1 {
+  font-size: 56px;
   margin-top: 36px;
   margin-bottom: 36px;
+  font-weight: bolder;
 }
 .titulo-cuidador{
  background-color: #5CC96B;
@@ -126,6 +127,12 @@ form {
   display: flex; 
   flex-direction: column; 
   width: 100%;
+  font-weight: bolder;
+  color: #a7abb1;
+}
+.fecha{
+  color: #a7abb1;
+  font-weight: bold;
 }
 .campo-formulario-fecha p{
   margin-bottom: 0;
@@ -143,7 +150,7 @@ button{
   color: white;
   padding: 18px 40px;
   border-radius: 60px;
-  width: 50%;
+  width: 80%;
   font-weight: bolder;
 }
 button:hover {
@@ -155,4 +162,6 @@ button:hover {
   align-items:center;
   font-size: 36px;
   margin-top: 1%;
+  color: #6B7C93;
+  font-weight:600;
 }
