@@ -73,19 +73,25 @@ body {
     80px 0px 0 25px white;
 }
 img {
-  width: 50%;
+  width: 40%;
   object-fit: cover;
 }
 h1 {
   font-size: 56px;
-  margin-top: 11%;
+  margin-top: 3%;
   font-weight: bolder;
 }
 h2 {
   font-size: 36px;
   color: #6B7C93;
-  margin-bottom: 12%;
-  font-weight: 700;
+  margin-bottom: 5%;
+  font-weight: 600;
+}
+h3{
+    font-size: 45px;
+    font-weight: bold;
+    margin: 0% 10%;
+    text-align: center;
 }
 .titulo-paciente{
  background-color: #62D076;
