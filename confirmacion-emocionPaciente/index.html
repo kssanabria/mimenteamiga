@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Mente Amiga – ¡Guardado!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <div class="screen-content">
+      <div class="saved-card">
+        <span class="saved-emoji" id="saved-emoji">😊</span>
+        <h2>¡Guardado!</h2>
+        <p>🧡 Todo va a estar bien</p>
+        <button class="btn-register-another" onclick="location.href='../emocion-paciente/index.html'">
+          Registrar otra
+        </button>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn" onclick="location.href='../panel-principal-paciente/index.html'">🏠<span>Inicio</span></button>
+      <button class="nav-btn active">😊<span>Emoción</span></button>
+      <button class="nav-btn" onclick="location.href='../medicacion-paciente/index.html'">💊<span>Medicación</span></button>
+      <button class="nav-btn" onclick="location.href='../progreso-paciente/index.html'">📈<span>Progreso</span></button>
+      <button class="nav-btn" onclick="location.href='../familia-paciente/index.html'">👨‍👩‍👧<span>Familia</span></button>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

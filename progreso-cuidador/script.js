@@ -1,0 +1,145 @@
+// ============================================================
+//  MI MENTE AMIGA — CUIDADOR / PROGRESO · script.js
+// ============================================================
+
+const API_BASE_URL   = 'http://localhost:3000/api';
+const getToken       = () => localStorage.getItem('token');
+const getCaregiverId = () => localStorage.getItem('caregiver_id');
+const authHeaders    = () => ({
+  'Content-Type': 'application/json',
+  'Authorization': `Bearer ${getToken()}`
+});
+
+const EMOJI_MAP = {
+  Feliz: '😄', Normal: '😐', Triste: '😢', Enfadado: '😠', Ansioso: '😰'
+};
+const DAYS_ES = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+
+// ── Últimos 7 días ────────────────────────────────────────────
+function getLast7Days() {
+  return Array.from({ length: 7 }, (_, i) => {
+    const d = new Date();
+    d.setDate(d.getDate() - (6 - i));
+    return d;
+  });
+}
+
+// ── Historial de Emociones ────────────────────────────────────
+/**
+ * GET /caregivers/:id/emotions-history?days=7
+ * Respuesta esperada: [{
+ *   patient_name: string,
+ *   emotions: [{ created_at: 'YYYY-MM-DD', emotion_type: string }]
+ * }]
+ */
+async function renderEmotionHistory() {
+  const container = document.getElementById('emotion-history');
+  container.innerHTML = '<p class="loading-text">Cargando...</p>';
+
+  const days = getLast7Days();
+
+  try {
+    const res = await fetch(
+      `${API_BASE_URL}/caregivers/${getCaregiverId()}/emotions-history?days=7`,
+      { headers: authHeaders() }
+    );
+    if (!res.ok) throw new Error();
+    const patientsData = await res.json();
+
+    if (!patientsData.length) {
+      container.innerHTML = '<p class="loading-text">Sin registros aún</p>';
+      return;
+    }
+
+    const blocks = patientsData.map(p => {
+      const byDate = {};
+      (p.emotions || []).forEach(e => {
+        byDate[e.created_at.slice(0, 10)] = e.emotion_type;
+      });
+
+      const dayItems = days.map(d => {
+        const key     = d.toISOString().slice(0, 10);
+        const emotion = byDate[key];
+        return `
+          <div class="day-item">
+            <span class="day-emoji">${emotion ? (EMOJI_MAP[emotion] ?? '—') : '—'}</span>
+            <span class="day-label">${DAYS_ES[d.getDay()]}</span>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="emotion-patient-block">
+          <span class="emotion-patient-name">${p.patient_name}</span>
+          <div class="emotion-days">${dayItems}</div>
+        </div>
+      `;
+    }).join('');
+
+    container.innerHTML = `<div class="emotion-week">${blocks}</div>`;
+  } catch (err) {
+    console.error('renderEmotionHistory:', err);
+    container.innerHTML = '<p class="loading-text">Sin registros aún</p>';
+  }
+}
+
+// ── Historial de Medicación ───────────────────────────────────
+/**
+ * GET /caregivers/:id/medication-history?days=7
+ * Respuesta esperada: [{
+ *   taken_at: 'YYYY-MM-DDTHH:mm',
+ *   medication_name: string,
+ *   patient_name: string
+ * }]
+ */
+async function renderMedicationHistory() {
+  const container = document.getElementById('medication-history');
+  container.innerHTML = '<p class="loading-text">Cargando...</p>';
+
+  try {
+    const res = await fetch(
+      `${API_BASE_URL}/caregivers/${getCaregiverId()}/medication-history?days=7`,
+      { headers: authHeaders() }
+    );
+    if (!res.ok) throw new Error();
+    const history = await res.json();
+
+    if (!history.length) {
+      container.innerHTML = '<p class="loading-text">Sin registros aún</p>';
+      return;
+    }
+
+    // Agrupa por fecha
+    const grouped = {};
+    history.forEach(item => {
+      const date = item.taken_at.slice(0, 10);
+      if (!grouped[date]) grouped[date] = [];
+      grouped[date].push(item.medication_name);
+    });
+
+    const rows = Object.entries(grouped)
+      .sort((a, b) => b[0].localeCompare(a[0]))
+      .map(([date, meds]) => {
+        const d     = new Date(date + 'T00:00:00');
+        const label = d.toLocaleDateString('es-ES', { day: '2-digit', month: 'short' });
+        const chips = meds.map(m => `<span class="med-chip">✓ ${m}</span>`).join('');
+        return `
+          <div class="history-row">
+            <span class="history-date">${label}</span>
+            <div class="history-chips">${chips}</div>
+          </div>
+        `;
+      }).join('');
+
+    container.innerHTML = `<div class="med-history-list">${rows}</div>`;
+  } catch (err) {
+    console.error('renderMedicationHistory:', err);
+    container.innerHTML = '<p class="loading-text">Sin registros aún</p>';
+  }
+}
+
+// ── Init ─────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  renderEmotionHistory();
+  renderMedicationHistory();
+});

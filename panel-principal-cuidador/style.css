@@ -1,5 +1,5 @@
 /* ============================================================
-   MI MENTE AMIGA — PACIENTE / HOME · style.css
+   MI MENTE AMIGA — CUIDADOR / HOME · style.css
    ============================================================ */
 :root {
   --sky: #b3dff7;
@@ -12,7 +12,6 @@
   --text-dark: #1a2e3b;
   --text-mid: #3a5568;
   --text-light: #6b8fa8;
-  --card-bg: rgba(255,255,255,0.92);
   --shadow: 0 4px 20px rgba(0,0,0,0.08);
   --radius: 18px;
   --font: 'Nunito', sans-serif;
@@ -40,86 +39,54 @@ body {
 .screen-content {
   flex: 1;
   overflow-y: auto;
-  padding: 28px 20px 100px;
+  padding: 48px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+/* Logo */
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.brain-logo        { font-size: 4rem; }
+.app-title         { font-size: 1.6rem; font-weight: 900; color: var(--text-dark); letter-spacing: 1px; }
+.app-subtitle      { font-size: 0.8rem; font-weight: 700; color: var(--text-mid); letter-spacing: 2px; }
+.caregiver-greeting{ font-size: 1.1rem; font-weight: 800; color: var(--text-dark); margin-top: 8px; }
+
+/* Buttons */
+.home-buttons {
   display: flex;
   flex-direction: column;
   gap: 14px;
-}
-
-.greeting {
-  font-size: 1.55rem;
-  font-weight: 900;
-  color: var(--text-dark);
-  text-align: center;
-  line-height: 1.3;
-  margin-top: 10px;
-}
-
-/* Videos */
-.btn-videos {
-  background: var(--white);
-  border: 2.5px solid var(--blue);
-  color: var(--blue-dark);
-  font-family: var(--font);
-  font-size: 1rem;
-  font-weight: 800;
-  padding: 14px 20px;
-  border-radius: var(--radius);
-  cursor: pointer;
   width: 100%;
-  text-align: left;
-  transition: background 0.2s, transform 0.15s;
 }
-.btn-videos:hover { background: var(--sky-light); transform: translateY(-1px); }
-
-.videos-container {
-  display: none;
-  flex-direction: column;
-  gap: 12px;
-  animation: fadeIn 0.3s ease;
-}
-.videos-container.open { display: flex; }
-
-.info-video {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-}
-
-/* Menu buttons */
-.menu-btn {
+.home-btn {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   width: 100%;
-  padding: 18px 22px;
+  padding: 18px 24px;
   border: none;
   border-radius: var(--radius);
   font-family: var(--font);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--white);
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
   box-shadow: var(--shadow);
 }
-.menu-btn:hover  { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.13); }
-.menu-btn:active { transform: scale(0.98); }
-.menu-btn.green  { background: var(--green); }
-.menu-btn.blue   { background: var(--blue); }
-.menu-icon { font-size: 1.5rem; }
-
-/* Motivational */
-.motivational-card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 16px 20px;
-  text-align: center;
-  font-size: 0.95rem;
-  color: var(--text-mid);
-  box-shadow: var(--shadow);
-}
-.motivational-card strong { display: block; font-size: 1rem; margin-bottom: 4px; color: var(--text-dark); }
+.home-btn:hover  { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.13); }
+.home-btn:active { transform: scale(0.98); }
+.home-btn.blue-dark { background: var(--blue-dark); }
+.home-btn.blue      { background: var(--blue); }
+.home-btn.green     { background: var(--green); }
+.home-btn-icon      { font-size: 1.5rem; }
 
 /* Bottom nav */
 .bottom-nav {
@@ -151,10 +118,5 @@ body {
   padding: 4px 8px;
 }
 .nav-btn span   { font-size: 0.68rem; font-weight: 700; }
-.nav-btn.active { color: var(--blue); }
+.nav-btn.active { color: var(--green); }
 .nav-btn:hover  { transform: translateY(-2px); }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}

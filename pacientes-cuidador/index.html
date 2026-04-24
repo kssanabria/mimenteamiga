@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Mente Amiga – Mis Pacientes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <div class="screen-content">
+      <div class="clouds-header">
+        <h1 class="page-title">Mis Pacientes</h1>
+        <p class="page-subtitle" id="caregiver-name">Hola, Karina</p>
+      </div>
+
+      <button class="btn-add-patient" onclick="goToAddPatient()">
+        👤+ Agregar paciente nuevo
+      </button>
+
+      <div class="patients-list" id="patients-list">
+        <p class="loading-text">Cargando pacientes...</p>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn" onclick="location.href='../panel-principal-cuidador/index.html'">🏠<span>Inicio</span></button>
+      <button class="nav-btn active">👥<span>Paciente</span></button>
+      <button class="nav-btn" onclick="location.href='../medicacion-cuidador/index.html'">💊<span>Medicación</span></button>
+      <button class="nav-btn" onclick="location.href='../progreso-cuidador/index.html'">📈<span>Progreso</span></button>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

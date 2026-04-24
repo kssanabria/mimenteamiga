@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Mente Amiga – Nueva Medicación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <div class="screen-content">
+
+      <div class="modal-header">
+        <button class="btn-back" onclick="location.href='../medicacion-cuidador/index.html'">✕</button>
+        <h2 class="modal-title" id="modal-title">Nueva Medicación</h2>
+      </div>
+
+      <div class="form-group">
+        <label>Nombre del medicamento</label>
+        <input type="text" id="med-name" placeholder="Ej: Clonazepam" class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label>Dosis</label>
+        <input type="text" id="med-dosage" placeholder="Ej: 0.5 mg" class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label>Frecuencia por día</label>
+        <div class="frequency-selector">
+          <button class="freq-btn active" data-freq="1" onclick="selectFrequency(this)">1x</button>
+          <button class="freq-btn" data-freq="2" onclick="selectFrequency(this)">2x</button>
+          <button class="freq-btn" data-freq="3" onclick="selectFrequency(this)">3x</button>
+          <button class="freq-btn" data-freq="4" onclick="selectFrequency(this)">4x</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Horas de toma</label>
+        <div id="time-inputs">
+          <div class="time-input-row">
+            <span>Toma 1</span>
+            <input type="time" class="time-input" value="08:00" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Fecha final <span class="optional">(opcional)</span></label>
+        <input type="date" id="med-end-date" class="form-input" />
+      </div>
+
+      <div class="form-group">
+        <label>Instrucciones <span class="optional">(opcional)</span></label>
+        <input type="text" id="med-instructions" placeholder="Ej: Tomar con comida" class="form-input" />
+      </div>
+
+      <button class="btn-save" id="btn-save" onclick="saveMedication()">Guardar</button>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
