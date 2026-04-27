@@ -1,0 +1,174 @@
+/* ============================================================
+   MI MENTE AMIGA — CUIDADOR / PACIENTES · style.css
+   ============================================================ */
+:root {
+  --sky: #b3dff7;
+  --sky-light: #d4edf9;
+  --green: #4cbb6e;
+  --green-hover: #3da85e;
+  --blue: #4ea8e0;
+  --blue-dark: #2176ae;
+  --white: #ffffff;
+  --text-dark: #1a2e3b;
+  --text-mid: #3a5568;
+  --text-light: #6b8fa8;
+  --card-bg: rgba(255,255,255,0.92);
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --radius: 18px;
+  --font: 'Nunito', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--sky);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  background: var(--sky);
+}
+
+.screen-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Clouds header */
+.clouds-header {
+  position: relative;
+  text-align: center;
+  padding: 10px 0 6px;
+}
+.clouds-header::before,
+.clouds-header::after {
+  content: '';
+  position: absolute;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50px;
+}
+.clouds-header::before { width: 90px; height: 38px; left: 0; top: -6px; }
+.clouds-header::after  { width: 70px; height: 30px; right: 10px; top: -4px; }
+.page-title    { font-size: 1.6rem; font-weight: 900; color: var(--text-dark); text-align: center; position: relative; z-index: 1; }
+.page-subtitle { font-size: 0.95rem; font-weight: 700; color: var(--text-mid); text-align: center; margin-top: 4px; }
+
+/* Add patient button */
+.btn-add-patient {
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: var(--shadow);
+}
+.btn-add-patient:hover { background: var(--green-hover); transform: translateY(-1px); }
+
+/* Patient cards */
+.patients-list { display: flex; flex-direction: column; gap: 12px; }
+
+.patient-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.3s ease;
+}
+.patient-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.patient-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.patient-info strong { font-size: 1rem; font-weight: 800; color: var(--text-dark); display: block; }
+.patient-info span   { font-size: 0.85rem; color: var(--text-mid); }
+
+.patient-card-divider { height: 1px; background: var(--sky-light); margin-bottom: 10px; }
+
+.patient-meds-label {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.patient-meds-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.med-chip-sm {
+  background: var(--sky-light);
+  color: var(--blue-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.loading-text { color: var(--text-light); font-size: 0.9rem; text-align: center; padding: 20px 0; }
+
+/* Bottom nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  background: var(--white);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0 14px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  z-index: 100;
+}
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  font-size: 1.3rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: color 0.2s, transform 0.15s;
+  padding: 4px 8px;
+}
+.nav-btn span   { font-size: 0.68rem; font-weight: 700; }
+.nav-btn.active { color: var(--green); }
+.nav-btn:hover  { transform: translateY(-2px); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Mente Amiga – Inicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <div class="screen-content" >
+
+      <img src="/logo (1).png" alt="logo de mi mente amiga">
+
+      <h1 class="greeting" id="greeting-name">Hola Karina, ¿cómo te sientes hoy?</h1>
+
+      <button class="btn-videos" onclick="toggleVideos()">
+        🎬 Ver videos informativos
+      </button>
+      <div class="videos-container" id="videos-container">
+        <video controls class="info-video">
+          <source src="/video1-paciente.mp4" type="video/mp4" />
+          Tu navegador no soporta video.
+        </video>
+        <video controls class="info-video">
+          <source src="/video2-paciente.mp4" type="video/mp4" />
+          Tu navegador no soporta video.
+        </video>
+      </div>
+
+      <button class="menu-btn green" onclick="location.href='../emociones-paciente/index.html'">
+        <span class="menu-icon">😊</span> Registrar emoción
+      </button>
+      <button class="menu-btn blue" onclick="location.href='../medicacion-paciente/index.html'">
+        <span class="menu-icon">💊</span> Mi medicación
+      </button>
+      <button class="menu-btn green" onclick="location.href='../progreso-paciente/index.html'">
+        <span class="menu-icon">📈</span> Mi progreso
+      </button>
+      <button class="menu-btn blue" onclick="location.href='../familia-paciente/index.html'">
+        <span class="menu-icon">👨‍👩‍👧</span> Familia
+      </button>
+
+      <div class="motivational-card">
+        🧡 <strong>Todo va a estar bien</strong>
+        <p>Hoy has hecho un gran esfuerzo</p>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active">🏠<span>Inicio</span></button>
+      <button class="nav-btn" onclick="location.href='../emociones-paciente/index.html'">😊<span>Emoción</span></button>
+      <button class="nav-btn" onclick="location.href='../medicacion-paciente/index.html'">💊<span>Medicación</span></button>
+      <button class="nav-btn" onclick="location.href='../progreso-paciente/index.html'">📈<span>Progreso</span></button>
+      <button class="nav-btn" onclick="location.href='../familia-paciente/index.html'">👨‍👩‍👧<span>Familia</span></button>
+    </nav>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>

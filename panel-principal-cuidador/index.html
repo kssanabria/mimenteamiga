@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Mente Amiga – Cuidador Inicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <div class="screen-content">
+      <img src="/logo (1).png" alt="logo de mi mente amiga">
+
+        <h1 class="app-title">MI MENTE AMIGA</h1>
+        <p class="app-subtitle">TU APOYO DIARIO</p>
+        <p class="caregiver-greeting" id="caregiver-greeting">Hola,  👋</p>
+
+      <button class="btn-videos" onclick="toggleVideos()">
+        🎬 Ver video informativo
+      </button>
+      <div class="videos-container" id="videos-container">
+        <video controls class="info-video">
+          <source src="../video-cuidador.mp4" type="video/mp4" />
+          Tu navegador no soporta video.
+        </video>
+      </div>
+
+      <div class="home-buttons">
+        <button class="home-btn blue-dark" onclick="location.href='../pacientes-cuidador/index.html'">
+          <span class="home-btn-icon">👥</span> Pacientes
+        </button>
+        <button class="home-btn blue" onclick="location.href='../medicacion-cuidador/index.html'">
+          <span class="home-btn-icon">💊</span> Medicación
+        </button>
+        <button class="home-btn green" onclick="location.href='../progreso-cuidador/index.html'">
+          <span class="home-btn-icon">📈</span> Progreso
+        </button>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active">🏠<span>Inicio</span></button>
+      <button class="nav-btn" onclick="location.href='../pacientes-cuidador/index.html'">👥<span>Paciente</span></button>
+      <button class="nav-btn" onclick="location.href='../medicacion-cuidador/index.html'">💊<span>Medicación</span></button>
+      <button class="nav-btn" onclick="location.href='../progreso-cuidador/index.html'">📈<span>Progreso</span></button>
+    </nav>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>

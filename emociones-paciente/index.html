@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Mente Amiga – Estado de Ánimo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <div class="screen-content">
+      <div class="clouds-header">
+        <h1 class="page-title">Estado de Ánimo</h1>
+        <p class="page-subtitle">¿Cómo te sientes hoy?</p>
+      </div>
+
+      <div class="emotion-grid">
+        <button class="emotion-card" data-emotion="Feliz" onclick="selectEmotion(this)">
+          <span class="emotion-emoji">😄</span>
+          <span class="emotion-label">Feliz</span>
+        </button>
+        <button class="emotion-card" data-emotion="Normal" onclick="selectEmotion(this)">
+          <span class="emotion-emoji">😐</span>
+          <span class="emotion-label">Normal</span>
+        </button>
+        <button class="emotion-card" data-emotion="Triste" onclick="selectEmotion(this)">
+          <span class="emotion-emoji">😢</span>
+          <span class="emotion-label">Triste</span>
+        </button>
+        <button class="emotion-card" data-emotion="Enfadado" onclick="selectEmotion(this)">
+          <span class="emotion-emoji">😠</span>
+          <span class="emotion-label">Enfadado</span>
+        </button>
+        <button class="emotion-card" data-emotion="Ansioso" onclick="selectEmotion(this)">
+          <span class="emotion-emoji">😰</span>
+          <span class="emotion-label">Ansioso</span>
+        </button>
+      </div>
+
+      <div class="comment-section" id="comment-section">
+        <textarea id="emotion-comment" class="comment-textarea" placeholder="¿Quieres contarnos algo más? (opcional)"></textarea>
+        <button class="btn-save" onclick="submitEmotion()">Guardar</button>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn" onclick="location.href='../panel-principal-paciente/index.html'">🏠<span>Inicio</span></button>
+      <button class="nav-btn active">😊<span>Emoción</span></button>
+      <button class="nav-btn" onclick="location.href='../medicacion-paciente/index.html'">💊<span>Medicación</span></button>
+      <button class="nav-btn" onclick="location.href='../progreso-paciente/index.html'">📈<span>Progreso</span></button>
+      <button class="nav-btn" onclick="location.href='../familia-paciente/index.html'">👨‍👩‍👧<span>Familia</span></button>
+    </nav>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
