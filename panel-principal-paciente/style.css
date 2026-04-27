@@ -28,6 +28,23 @@ body {
   justify-content: center;
 }
 
+/* Clouds header */
+.clouds-header {
+  position: relative;
+  text-align: center;
+  padding: 10px 0 6px;
+}
+.clouds-header::before,
+.clouds-header::after {
+  content: '';
+  position: absolute;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50px;
+}
+.clouds-header::before { width: 90px; height: 38px; left: 0; top: -6px; }
+.clouds-header::after  { width: 70px; height: 30px; right: 10px; top: -4px; }
+
+
 .screen {
   display: flex;
   flex-direction: column;
@@ -44,6 +61,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  align-items: center;
+}
+img {
+  width: 50%;
+  object-fit: cover;
 }
 
 .greeting {

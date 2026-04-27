@@ -12,11 +12,20 @@
 <body>
   <div class="screen">
     <div class="screen-content">
-      <div class="logo-area">
-        <div class="brain-logo">🧠</div>
+      <img src="/logo (1).png" alt="logo de mi mente amiga">
+
         <h1 class="app-title">MI MENTE AMIGA</h1>
         <p class="app-subtitle">TU APOYO DIARIO</p>
-        <p class="caregiver-greeting" id="caregiver-greeting">Hola, Karina 👋</p>
+        <p class="caregiver-greeting" id="caregiver-greeting">Hola,  👋</p>
+
+      <button class="btn-videos" onclick="toggleVideos()">
+        🎬 Ver video informativo
+      </button>
+      <div class="videos-container" id="videos-container">
+        <video controls class="info-video">
+          <source src="../video-cuidador.mp4" type="video/mp4" />
+          Tu navegador no soporta video.
+        </video>
       </div>
 
       <div class="home-buttons">
@@ -39,7 +48,7 @@
       <button class="nav-btn" onclick="location.href='../progreso-cuidador/index.html'">📈<span>Progreso</span></button>
     </nav>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="script.js"></script>
 </body>
 </html>
